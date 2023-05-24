@@ -1,0 +1,8 @@
+<p *ngIf="parent" [class.lastNode]="children.length === 0">
+  <button mat-icon-button *ngIf="children.length > 0" (click)="parent.open = !parent.open">
+    <mat-icon>{{parent.open ? 'expand_more' : 'chevron_right'}}</mat-icon>
+  </button>{{ parent.title }}
+</p>
+<div cdkDropList (cdkDropListDropped)="drop($event)" [class.firstNode]="!parent" class="children" *ngIf="isOpen()">
+  <app-tree cdkDrag class="child" *ngFor="let child of children" [parent]="child"></app-tree>
+</div>

@@ -1,0 +1,41 @@
+p {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+}
+
+.lastNode {
+  padding-left: 50px;
+}
+
+.children {
+  padding-left: 30px;
+  &.firstNode {
+    padding-left: 0;
+  }
+}
+
+.child {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  cursor: move;
+  background: rgb(175, 190, 204);
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.281);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.children.cdk-drop-list-dragging .child:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
